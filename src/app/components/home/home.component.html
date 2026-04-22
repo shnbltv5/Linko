@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div class="p-5 mb-4 bg-light rounded-3 shadow-sm">
+      <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Welcome to Online Courses!</h1>
+        <p class="col-md-8 fs-4">
+          Your platform for learning and teaching. Explore a variety of courses or share your knowledge with others.
+        </p>
+        <hr class="my-4">
+  
+        <div *ngIf="!authService.isLoggedIn()">
+          <p>Get started today!</p>
+          <a class="btn btn-primary btn-lg me-2" routerLink="/register" role="button">Register</a>
+          <a class="btn btn-secondary btn-lg" routerLink="/login" role="button">Login</a>
+          <a class="btn btn-outline-info btn-lg ms-2" routerLink="/courses" role="button">Browse Courses</a>
+        </div>
+  
+        <div *ngIf="authService.isLoggedIn()">
+           <p class="fs-5">Welcome back, {{ authService.getCurrentUsername() }}!</p>
+          <a class="btn btn-success btn-lg me-2" routerLink="/courses" role="button">Browse Courses</a>
+          <a *ngIf="authService.isStudent()" class="btn btn-info btn-lg me-2" routerLink="/my-courses" role="button">My Courses</a>
+           <a *ngIf="authService.isTeacher()" class="btn btn-warning btn-lg" routerLink="/add-course" role="button">Add a Course</a>
+        </div>
+  
+      </div>
+    </div>
+  
+    </div>

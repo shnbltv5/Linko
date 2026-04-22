@@ -1,0 +1,46 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Available Courses</h2>
+  
+    <ng-container *ngIf="(courses$ | async) as courses; else loadingOrError">
+      <div *ngIf="courses.length > 0; else noCourses" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div *ngFor="let course of courses" class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ course.title }}</h5>
+              <p class="card-text text-muted small mb-2">
+                <span *ngIf="course.teacher">Taught by: {{ course.teacher?.username }}</span>
+                <span *ngIf="course.category"> | Category: {{ course.category?.name }}</span>
+              </p>
+              <p class="card-text flex-grow-1">
+                {{ course.description | slice:0:100 }}{{ course.description.length > 100 ? '...' : '' }}
+              </p>
+              <a [routerLink]="['/courses', course.id]" class="btn btn-primary mt-auto align-self-start">View Details</a>
+            </div>
+            <div class="card-footer text-muted small">
+              Created: {{ course.created_at | date:'mediumDate' }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-template #noCourses>
+        <div class="alert alert-info" role="alert">
+          No courses available at the moment.
+        </div>
+      </ng-template>
+    </ng-container>
+  
+    <ng-template #loadingOrError>
+      <div *ngIf="errorLoading; else loading" class="alert alert-danger" role="alert">
+        Failed to load courses. Please try refreshing the page.
+      </div>
+      <ng-template #loading>
+        <div class="d-flex justify-content-center mt-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading courses...</span>
+          </div>
+          <span class="ms-2">Loading courses...</span>
+        </div>
+      </ng-template>
+    </ng-template>
+  
+  </div>

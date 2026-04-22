@@ -1,0 +1,40 @@
+<div class="container mt-4">
+    <h2 class="mb-4">My Enrolled Courses</h2>
+  
+    <ng-container *ngIf="enrollments$ | async as enrollments; else loadingOrError">
+      <div *ngIf="enrollments.length > 0; else noEnrollments">
+        <div class="list-group shadow-sm">
+          <a *ngFor="let enrollment of enrollments"
+             [routerLink]="['/courses', enrollment.course?.id]"
+             class="list-group-item list-group-item-action flex-column align-items-start mb-2">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1">{{ enrollment.course?.title || 'Course Title Missing' }}</h5>
+              <small class="text-muted">Enrolled: {{ enrollment.enrolled_at | date:'shortDate' }}</small>
+            </div>
+            <p class="mb-1">{{ enrollment.course?.description | slice:0:150 }}{{ (enrollment.course?.description?.length || 0) > 150 ? '...' : '' }}</p>
+            <small class="text-muted">Taught by: {{ enrollment.course?.teacher?.username || 'N/A' }}</small>
+            </a>
+        </div>
+      </div>
+      <ng-template #noEnrollments>
+        <div class="alert alert-info" role="alert">
+          You haven't enrolled in any courses yet. <a routerLink="/courses" class="alert-link">Browse courses</a>!
+        </div>
+      </ng-template>
+    </ng-container>
+  
+    <ng-template #loadingOrError>
+      <div *ngIf="errorLoading; else loading" class="alert alert-danger text-center" role="alert">
+        Failed to load your courses. Please try again later.
+      </div>
+      <ng-template #loading>
+        <div class="d-flex justify-content-center mt-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <span class="ms-2">Loading your courses...</span>
+        </div>
+      </ng-template>
+    </ng-template>
+  
+  </div>

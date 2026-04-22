@@ -1,0 +1,95 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Register</h3>
+  
+          <div *ngIf="errorMessages.general" class="alert alert-danger" role="alert">
+            {{ errorMessages.general.join(', ') }}
+          </div>
+  
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="reg-username" class="form-label">Username <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" [class.is-invalid]="errorMessages.username" id="reg-username" name="username" [(ngModel)]="userData.username" required [disabled]="isLoading">
+              <div *ngIf="errorMessages.username" class="invalid-feedback">
+                {{ errorMessages.username.join(', ') }}
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="reg-email" class="form-label">Email <span class="text-danger">*</span></label>
+              <input type="email" class="form-control" [class.is-invalid]="errorMessages.email" id="reg-email" name="email" [(ngModel)]="userData.email" required [disabled]="isLoading">
+               <div *ngIf="errorMessages.email" class="invalid-feedback">
+                {{ errorMessages.email.join(', ') }}
+              </div>
+            </div>
+  
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="reg-first-name" class="form-label">First Name</label>
+                <input type="text" class="form-control" [class.is-invalid]="errorMessages.first_name" id="reg-first-name" name="first_name" [(ngModel)]="userData.first_name" [disabled]="isLoading">
+                 <div *ngIf="errorMessages.first_name" class="invalid-feedback">
+                  {{ errorMessages.first_name.join(', ') }}
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="reg-last-name" class="form-label">Last Name</label>
+                <input type="text" class="form-control" [class.is-invalid]="errorMessages.last_name" id="reg-last-name" name="last_name" [(ngModel)]="userData.last_name" [disabled]="isLoading">
+                 <div *ngIf="errorMessages.last_name" class="invalid-feedback">
+                  {{ errorMessages.last_name.join(', ') }}
+                </div>
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="reg-password" class="form-label">Password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" [class.is-invalid]="errorMessages.password" id="reg-password" name="password" [(ngModel)]="userData.password" required [disabled]="isLoading">
+               <div *ngIf="errorMessages.password" class="invalid-feedback">
+                {{ errorMessages.password.join(', ') }}
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="reg-password2" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+              <input type="password" class="form-control" [class.is-invalid]="errorMessages.password2" id="reg-password2" name="password2" [(ngModel)]="userData.password2" required [disabled]="isLoading">
+               <div *ngIf="errorMessages.password2" class="invalid-feedback">
+                {{ errorMessages.password2.join(', ') }} </div>
+            </div>
+  
+            <div class="mb-3">
+               <label class="form-label d-block">Register as: <span class="text-danger">*</span></label>
+               <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="role" id="roleStudent" value="student" [(ngModel)]="role" [disabled]="isLoading">
+                <label class="form-check-label" for="roleStudent">Student</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="role" id="roleTeacher" value="teacher" [(ngModel)]="role" [disabled]="isLoading">
+                <label class="form-check-label" for="roleTeacher">Teacher</label>
+              </div>
+               <div *ngIf="errorMessages.is_student || errorMessages.is_teacher" class="invalid-feedback d-block">
+                 {{ errorMessages.is_student?.join(', ') }} {{ errorMessages.is_teacher?.join(', ') }}
+               </div>
+            </div>
+  
+  
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                <span *ngIf="!isLoading">Register</span>
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span *ngIf="isLoading"> Registering...</span>
+              </button>
+            </div>
+          </form>
+  
+          <div class="text-center mt-3">
+            Already have an account? <a routerLink="/login">Login here</a>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="errorMessages.username" class="invalid-feedback">
+    {{ errorMessages.username.join(', ') }}
+  </div>

@@ -1,0 +1,92 @@
+.card {
+    border-radius: 12px;
+    border: none;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 1.25rem;
+    border-radius: 12px 12px 0 0;
+  }
+  
+  .card-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .card-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .badge.bg-secondary {
+    background-color: #6c757d;
+    font-size: 0.85rem;
+    padding: 0.4em 0.6em;
+    border-radius: 6px;
+  }
+  
+  .btn-success, .btn-danger {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .btn-outline-primary, .btn-outline-danger, .btn-outline-secondary {
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+  }
+  
+  .text-muted.small {
+    font-size: 0.85rem;
+    color: #888 !important;
+  }
+  
+  .card-footer {
+    background-color: #fafafa;
+    border-top: 1px solid #e0e0e0;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0 12px 12px;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    color: #842029;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
+  
+  .spinner-border-sm {
+    margin-right: 0.5rem;
+  }
+  
+  @media (max-width: 576px) {
+    .card-title {
+      font-size: 1.5rem;
+    }
+  
+    .btn-success, .btn-danger {
+      font-size: 0.95rem;
+    }
+  
+    .btn-outline-primary, .btn-outline-danger, .btn-outline-secondary {
+      font-size: 0.8rem;
+    }
+  }
+  
