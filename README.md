@@ -15,9 +15,8 @@ Backend: Django + Django REST Framework (REST API)
 Frontend: Angular (Standalone Components API)
 👥 Team Members
 
-Orazymbetov Zhantore
-Nurtaza Ayaulym
-Kudryakov Andrey
+Aidana Shynbulatova
+Ayaulim Erzhankyzy
 🚀 Key Features
 
 🆕 User registration with role selection (Student or Teacher)
