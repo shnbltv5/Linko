@@ -1,0 +1,88 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-sm" *ngIf="!isLoadingCourse; else loadingInitialData">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">{{ pageTitle }}</h3>
+  
+          <div *ngIf="errorMessages.general || errorMessages.non_field_errors" class="alert alert-danger" role="alert">
+            {{ errorMessages.general?.join(', ') }}
+            {{ errorMessages.non_field_errors?.join(', ') }}
+          </div>
+  
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="edit-course-title" class="form-label">Title <span class="text-danger">*</span></label>
+              <input type="text"
+                     class="form-control"
+                     [class.is-invalid]="errorMessages.title"
+                     id="edit-course-title"
+                     name="title"
+                     [(ngModel)]="courseData.title"
+                     required
+                     [disabled]="isLoading">
+              <div *ngIf="errorMessages.title" class="invalid-feedback">
+                {{ errorMessages.title.join(', ') }}
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="edit-course-description" class="form-label">Description</label>
+              <textarea class="form-control"
+                        [class.is-invalid]="errorMessages.description"
+                        id="edit-course-description"
+                        name="description"
+                        [(ngModel)]="courseData.description"
+                        rows="4"
+                        [disabled]="isLoading">
+              </textarea>
+               <div *ngIf="errorMessages.description" class="invalid-feedback">
+                {{ errorMessages.description.join(', ') }}
+              </div>
+            </div>
+  
+            <div class="mb-3">
+              <label for="edit-course-category" class="form-label">Category</label>
+              <ng-container *ngIf="categories$ | async as categories; else categoryLoading">
+                <select class="form-select"
+                        id="edit-course-category"
+                        name="category_id"
+                        [(ngModel)]="courseData.category_id"
+                        [class.is-invalid]="errorMessages.category_id"
+                        [disabled]="isLoading">
+                  <option [ngValue]="null">-- Select a Category --</option>
+                  <option *ngFor="let category of categories" [value]="category.id">
+                    {{ category.name }}
+                  </option>
+                </select>
+                <div *ngIf="errorMessages.category_id" class="invalid-feedback">
+                  {{ errorMessages.category_id.join(', ') }}
+                </div>
+              </ng-container>
+              <ng-template #categoryLoading>
+                <select class="form-select" disabled> <option>Loading categories...</option> </select>
+              </ng-template>
+            </div>
+  
+            <div class="d-flex justify-content-end gap-2">
+               <a [routerLink]="['/courses', currentCourseId]" class="btn btn-secondary" *ngIf="currentCourseId">
+                Cancel
+               </a>
+               <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                <span *ngIf="!isLoading">Save Changes</span>
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span *ngIf="isLoading"> Saving...</span>
+              </button>
+            </div>
+          </form>
+        </div> </div> <ng-template #loadingInitialData>
+         <div class="text-center mt-5">
+           <div class="spinner-border text-primary" role="status">
+             <span class="visually-hidden">Loading course data...</span>
+           </div>
+           <p class="mt-2">Loading course data...</p>
+         </div>
+       </ng-template>
+  
+    </div> </div> 
+  
+ 

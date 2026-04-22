@@ -1,0 +1,56 @@
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">Login</h3>
+  
+          <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+            {{ errorMessage }}
+          </div>
+  
+          <form (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="username"
+                [(ngModel)]="credentials.username"
+                required
+                [disabled]="isLoading"
+                placeholder="Enter your username"
+              />
+            </div>
+  
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                [(ngModel)]="credentials.password"
+                required
+                [disabled]="isLoading"
+                placeholder="Enter your password"
+              />
+              </div>
+  
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+                <span *ngIf="!isLoading">Login</span>
+                <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span *ngIf="isLoading"> Loading...</span>
+              </button>
+            </div>
+          </form>
+  
+          <div class="text-center mt-3">
+            Don't have an account? <a routerLink="/register">Register here</a>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>

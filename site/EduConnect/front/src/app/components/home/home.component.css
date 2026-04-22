@@ -1,0 +1,131 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .p-5 {
+    padding: 3rem;
+  }
+  
+  .bg-light {
+    background-color: #f8f9fa !important;
+  }
+  
+  .shadow-sm {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container-fluid {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
+  
+  h1.display-5 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  p.fs-4 {
+    font-size: 1.25rem;
+    color: #555;
+  }
+  
+  hr.my-4 {
+    border: 0;
+    border-top: 1px solid #e0e0e0;
+    margin: 1.5rem 0;
+  }
+  
+  .btn {
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  .btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+  }
+  
+  .btn-primary:hover {
+    background-color: #3b7dc4;
+    border-color: #3b7dc4;
+  }
+  
+  .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+  }
+  
+  .btn-outline-info {
+    color: #17a2b8;
+    border-color: #17a2b8;
+  }
+  
+  .btn-outline-info:hover {
+    background-color: #17a2b8;
+    color: #fff;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+  }
+  
+  .btn-info {
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+  }
+  
+  .btn-info:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+  }
+  
+  .btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+  }
+  
+  .btn-lg {
+    font-size: 1.25rem;
+    padding: 0.75rem 2rem;
+  }
+  
+  .fs-5 {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  @media (max-width: 576px) {
+    h1.display-5 {
+      font-size: 2.5rem;
+    }
+  
+    p.fs-4 {
+      font-size: 1.1rem;
+    }
+  
+    .btn-lg {
+      font-size: 1.1rem;
+      padding: 0.6rem 1.5rem;
+    }
+  }
+  

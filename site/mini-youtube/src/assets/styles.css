@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+}
+button {
+  font-family: inherit;
+}
