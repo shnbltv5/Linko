@@ -56,7 +56,7 @@ Python 3.8+
 Node.js (LTS version) + npm
 Angular CLI:
 npm install -g @angular/cli
-🧱 Installation Steps 1️⃣ Clone the Repository git clone https://github.com/Zhantoresh/WebDev-project---EduConnect.git cd WebDev-project---EduConnect
+🧱 Installation Steps 1️⃣ Clone the Repository git clone https://github.com/shnbltv5/Linko.git cd site
 
 2️⃣ Backend Setup (back/ folder) cd back
 
